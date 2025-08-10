@@ -1,0 +1,244 @@
+{
+  "main": {
+    "id": "4526565005cba733",
+    "type": "split",
+    "children": [
+      {
+        "id": "576364c58f0027ac",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5623b71923e09983",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "084ebcb604846597",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/architechture.md.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "architechture.md"
+            }
+          }
+        ]
+      },
+      {
+        "id": "75ee4992a06bfc06",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "73ab0e9cda37b0e0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/architechture.md.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "architechture.md"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "803d1cb23dd318ef",
+    "type": "split",
+    "children": [
+      {
+        "id": "968dacc638dfd5bf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f80077451e114fb1",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "144e94928d47e2a4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "3fee5cd29c5ab53e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "1aac9985015ef686",
+    "type": "split",
+    "children": [
+      {
+        "id": "8372e206d2fa0f3d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "14b8bb32105acf28",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "f6036021983b2073",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "3d93dcc56c12dfe5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "7f530dc80c4b7f51",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "5623b71923e09983",
+  "lastOpenFiles": [
+    "docs/architechture.md.md",
+    "Templates/SM-Checklist-Mexica.md",
+    "Templates/SM-Checklist.md",
+    "docs/prd.md.md",
+    "references/fonts/Arvo.zip",
+    "references/fonts/Unconfirmed 125001.~",
+    "references/fonts",
+    "references/Новая папка",
+    "references/western-avatars-story/cowboy-rocks2.png",
+    "references/western-avatars-story/cowboy-rocks.png",
+    "references/western-avatars-story/cowboy-rocks-title.png",
+    "references/western-avatars-story/cowboy-gpt.png",
+    "references/western-avatars-story/cowboy-google-advance.png",
+    "references/western-avatars-story/cowboy-FluxSchnell.png",
+    "references/western-avatars-story/cowboy-FluxPro.png",
+    "references/western-avatars-story",
+    "docs/project-brief.md.md",
+    "references/Путешествие в Мексику страна древних цивилизаций и райских пляжей Dzen статья.md",
+    "references/Гнездо Кукушки.md",
+    "Гнездо Кукушки.md",
+    "references/mexico-travel-adventure.md",
+    "references/яндекс путешествия промокод.md",
+    "Welcome.md",
+    "references",
+    "referencs/mexico-travel-adventure.md",
+    "referencs",
+    "referencies/mexico-travel-adventure.md",
+    "referencies",
+    "Новая папка",
+    "Templates/Task.md",
+    "Templates/Ref-Person.md",
+    "Templates/Ref-Instruction.md",
+    "Templates/Ref-Document.md",
+    "Templates/Project.md",
+    "Templates/Meeting.md",
+    "Templates/Inbox.md",
+    "Templates/Daily template.md",
+    "Templates/Book Template.md",
+    "Templates/Area.md",
+    "Templates",
+    "docs/wireframes-trading-platform/index.md",
+    "docs/wireframes-trading-platform/9.md",
+    "docs/wireframes-trading-platform/8.md"
+  ]
+}

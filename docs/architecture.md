@@ -1,9 +1,4 @@
-Excellent choice. The `fullstack-architecture-tmpl.yaml` is perfect for laying a robust foundation for your entire application, from the user's screen to the database.
-
-I am now initiating the `create-doc` task. I will process the document section by section, presenting my drafted content and rationale for your review. Your feedback at each step is crucial to ensure the final architecture aligns perfectly with your vision.
-
-Let's begin.
-
+# Architecture
 ---
 
 ### **Section 1: Introduction and Vision**
@@ -89,7 +84,7 @@ graph TD
         G -- Triggers Build --> CI{Build & Deploy};
     end
 
-    subgraph "User-Facing Layer (Hosted on Vercel/Netlify)"
+    subgraph "User-Facing Layer (Hosted on Yandex Cloud VPS)"
         CI -- Deploys Static Files --> CDN(Global CDN);
         U(User's Browser) -- HTTPS Request --> CDN;
         CDN -- Serves HTML/CSS/JS --> U;
@@ -200,7 +195,7 @@ All custom components will reside in the `src/components/` directory, organized 
 
 **5.1. Technology Stack**
 
-*   **Platform:** **Supabase** - We will use Supabase as our all-in-one Backend-as-a-Service (BaaS) platform. It provides a managed PostgreSQL database, authentication, and serverless Edge Functions, which perfectly aligns with our `Simplicity` and `Low Operational Overhead` constraints.
+*   **Platform:** **Self-hosted Supabase on Yandex Cloud VPS** - We will deploy Supabase directly on our VPS infrastructure. This gives us the benefits of Supabase (PostgreSQL database, authentication, Edge Functions) while maintaining full control over our data and infrastructure within the Russian cloud ecosystem.
 *   **Database:** **PostgreSQL** - A powerful, open-source, and reliable relational database provided out-of-the-box by Supabase.
 *   **Serverless Functions:** **Deno Edge Functions** - Written in **TypeScript**, these are globally distributed serverless functions that run on Deno. Using TypeScript provides language consistency with our front-end.
 *   **Authentication:** **Supabase Auth** - A built-in service that handles user management and JWT (JSON Web Token) issuance.
@@ -298,7 +293,7 @@ The initial database schema will be minimal, designed to support the first set o
 
 **7.1. CI/CD Provider**
 
-*   **Platform:** **Vercel** (or Netlify, as they are functionally equivalent for our purposes).
+*   **Platform:** **Yandex Cloud VPS with Nginx** - We will deploy our Docusaurus site directly on our VPS using Nginx as a web server. This provides full control over our hosting environment while maintaining the performance benefits of static site generation.
 *   **Integration:** Vercel will be linked directly to our Git repository (e.g., GitHub).
 *   **Trigger:** Every `git push` to the `main` branch will automatically trigger a production build and deployment. Pushes to any other branch will trigger a "Preview Deployment."
 
@@ -361,4 +356,427 @@ This document outlines a comprehensive, modern, and pragmatic architecture for b
 2.  **For the Budget:** It heavily leverages generous free tiers provided by Vercel and Supabase. The projected operational cost for the foreseeable future is **$0/month**.
 3.  **For Performance:** It is a static-first architecture. The site is pre-built and served from a global CDN, ensuring the fastest possible load times for users anywhere in the world. Automated image optimization further enhances performance.
 4.  **For the Future:** The architecture is decoupled and scalable. The front-end can evolve independently of the back-end. New dynamic features can be added incrementally as serverless functions without requiring a full system overhaul.
+
+
+Отлично! Давайте детально разработаем **Вариант 3: Self-hosted решение**. Это даст вам полный контроль над инфраструктурой и независимость от внешних сервисов.
+
+## ��️ **SELF-HOSTED АРХИТЕКТУРА: ДЕТАЛЬНАЯ РАЗРАБОТКА**
+
+### �� **Архитектурная схема:**
+
+```mermaid
+graph TB
+    subgraph "Инфраструктура"
+        A[VPS Provider<br/>Yandex Cloud / Selectel / Timeweb]
+        B[Domain & DNS<br/>Reg.ru / Yandex.Connect]
+    end
+    
+    subgraph "Frontend Layer"
+        C[Docusaurus Static Site]
+        D[Nginx Web Server]
+        E[SSL Certificate<br/>Let's Encrypt]
+    end
+    
+    subgraph "Backend Layer"
+        F[Node.js API Server]
+        G[PostgreSQL Database]
+        H[Redis Cache<br/>Optional]
+    end
+    
+    subgraph "Storage Layer"
+        I[Local File Storage]
+        J[Database Backups]
+        K[Log Files]
+    end
+    
+    subgraph "CI/CD Pipeline"
+        L[GitHub Repository]
+        M[GitHub Actions]
+        N[Auto-deploy Scripts]
+    end
+    
+    A --> D
+    A --> F
+    A --> G
+    B --> E
+    C --> D
+    D --> E
+    F --> G
+    F --> H
+    F --> I
+    M --> N
+    N --> A
+```
+
+### 🎯 **ТЕХНИЧЕСКИЕ СПЕЦИФИКАЦИИ:**
+
+#### **VPS требования:**
+- **CPU:** 2 vCPU (минимум)
+- **RAM:** 4 GB (минимум)
+- **Storage:** 50 GB SSD
+- **OS:** Ubuntu 22.04 LTS
+- **Network:** 1 Gbps, статический IP
+
+#### **Программное обеспечение:**
+- **Web Server:** Nginx 1.18+
+- **Database:** PostgreSQL 15+
+- **Runtime:** Node.js 18+ LTS
+- **Process Manager:** PM2
+- **Containerization:** Docker (опционально)
+- **SSL:** Let's Encrypt (Certbot)
+
+### 🔧 **ПЛАН РАЗВЕРТЫВАНИЯ:**
+
+#### **Этап 1: Подготовка VPS**
+```bash
+# Обновление системы
+sudo apt update && sudo apt upgrade -y
+
+# Установка базовых пакетов
+sudo apt install -y curl wget git unzip software-properties-common
+
+# Установка Node.js
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# Установка PostgreSQL
+sudo apt install -y postgresql postgresql-contrib
+
+# Установка Nginx
+sudo apt install -y nginx
+
+# Установка PM2
+sudo npm install -g pm2
+```
+
+#### **Этап 2: Настройка базы данных**
+```bash
+# Создание пользователя и базы
+sudo -u postgres createuser --interactive
+sudo -u postgres createdb mexica_travel_blog
+
+# Настройка аутентификации
+sudo nano /etc/postgresql/15/main/pg_hba.conf
+# Добавить: host all all 127.0.0.1/32 md5
+
+# Перезапуск PostgreSQL
+sudo systemctl restart postgresql
+```
+
+#### **Этап 3: Настройка Nginx**
+```nginx
+# /etc/nginx/sites-available/mexica-travel-blog
+server {
+    listen 80;
+    server_name your-domain.com www.your-domain.com;
+    
+    # Frontend (Docusaurus)
+    location / {
+        root /var/www/mexica-travel-blog/build;
+        try_files $uri $uri/ /index.html;
+        
+        # Кэширование статических файлов
+        location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+            expires 1y;
+            add_header Cache-Control "public, immutable";
+        }
+    }
+    
+    # Backend API
+    location /api/ {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_cache_bypass $http_upgrade;
+    }
+    
+    # Gzip сжатие
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css text/xml text/javascript application/javascript application/xml+rss application/json;
+}
+```
+
+#### **Этап 4: Backend API Server**
+```javascript
+// server.js
+const express = require('express');
+const { Pool } = require('pg');
+const cors = require('cors');
+const helmet = require('helmet');
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+// Middleware
+app.use(helmet());
+app.use(cors());
+app.use(express.json());
+
+// Database connection
+const pool = new Pool({
+    user: 'mexica_user',
+    host: 'localhost',
+    database: 'mexica_travel_blog',
+    password: process.env.DB_PASSWORD,
+    port: 5432,
+});
+
+// API Routes
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
+app.post('/api/contact', async (req, res) => {
+    try {
+        const { name, email, message } = req.body;
+        const query = 'INSERT INTO contact_submissions (name, email, message) VALUES ($1, $2, $3) RETURNING *';
+        const values = [name, email, message];
+        
+        const result = await pool.query(query, values);
+        res.status(201).json(result.rows[0]);
+    } catch (error) {
+        console.error('Error saving contact form:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
+```
+
+#### **Этап 5: CI/CD Pipeline**
+```yaml
+# .github/workflows/deploy.yml
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build Docusaurus
+      run: npm run build
+    
+    - name: Deploy to VPS
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USERNAME }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        script: |
+          cd /var/www/mexica-travel-blog
+          git pull origin main
+          npm ci
+          npm run build
+          sudo systemctl reload nginx
+          pm2 restart mexica-api
+```
+
+### 💰 **СТОИМОСТЬ ИНФРАСТРУКТУРЫ:**
+
+#### **VPS провайдеры (месячная стоимость):**
+- **Yandex Cloud:** 1,500-3,000 ₽/мес
+- **Selectel:** 1,200-2,500 ₽/мес  
+- **Timeweb:** 800-1,800 ₽/мес
+- **Reg.ru:** 600-1,500 ₽/мес
+
+#### **Дополнительные расходы:**
+- **Домен:** 500-1,500 ₽/год
+- **SSL сертификат:** 0 ₽ (Let's Encrypt)
+- **Резервное копирование:** 200-500 ₽/мес
+
+**Итого:** 1,500-4,000 ₽/мес (в зависимости от провайдера)
+
+### 🛡️ **БЕЗОПАСНОСТЬ И МОНИТОРИНГ:**
+
+#### **Безопасность:**
+```bash
+# Настройка firewall
+sudo ufw enable
+sudo ufw allow ssh
+sudo ufw allow 80
+sudo ufw allow 443
+sudo ufw allow 3000
+
+# Настройка fail2ban
+sudo apt install fail2ban
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban
+
+# Автоматические обновления
+sudo apt install unattended-upgrades
+sudo dpkg-reconfigure -plow unattended-upgrades
+```
+
+#### **Мониторинг:**
+```bash
+# Установка мониторинга
+sudo npm install -g pm2-logrotate
+pm2 install pm2-logrotate
+
+# Настройка логирования
+sudo mkdir /var/log/mexica-travel-blog
+sudo chown $USER:$USER /var/log/mexica-travel-blog
+
+# PM2 конфигурация
+pm2 ecosystem
+```
+
+### �� **СРАВНЕНИЕ С ТЕКУЩИМ РЕШЕНИЕМ:**
+
+| Аспект | Текущее (Supabase + Vercel) | Self-hosted |
+|--------|------------------------------|-------------|
+| **Стоимость** | 0 ₽/мес | 1,500-4,000 ₽/мес |
+| **Контроль** | Ограниченный | Полный |
+| **Надежность** | Высокая | Средняя |
+| **Сложность** | Низкая | Высокая |
+| **Масштабируемость** | Автоматическая | Ручная |
+| **Поддержка** | 24/7 | Самостоятельная |
+
+### 🚀 **ПЛАН МИГРАЦИИ:**
+
+#### **Неделя 1: Подготовка**
+- [ ] Выбор VPS провайдера
+- [ ] Покупка домена
+- [ ] Настройка VPS
+
+#### **Неделя 2: Развертывание**
+- [ ] Установка ПО
+- [ ] Настройка базы данных
+- [ ] Настройка Nginx
+
+#### **Неделя 3: Разработка**
+- [ ] Создание backend API
+- [ ] Настройка CI/CD
+- [ ] Тестирование
+
+#### **Неделя 4: Миграция**
+- [ ] Перенос данных
+- [ ] Обновление DNS
+- [ ] Финальное тестирование
+
+### 💡 **РЕКОМЕНДАЦИИ:**
+
+1. **Начните с малого:** Сначала разверните простую версию
+2. **Автоматизируйте:** Используйте Ansible или Terraform для управления
+3. **Мониторьте:** Настройте алерты и логирование
+4. **Резервируйте:** Регулярно создавайте backup'ы
+5. **Документируйте:** Ведите подробную документацию по настройке
+
+
+# ВАЖНОЕ ПРИМЕЧАНИЕ
+Будем использовать VPS от Yandex Cloud. Домен будет куплен у Reg.ru. 
+Используем supabase для базы данных. пример https://timeweb.cloud/tutorials/cloud/kak-razvernut-supabase-v-oblake-timeweb-cloud
+
+Как использовать supabase на VPS: https://timeweb.cloud/tutorials/cloud/primery-ispolzovaniya-supabase-v-oblake-timeweb-cloud
+
+---
+
+## 🆕 **ОБНОВЛЕННАЯ АРХИТЕКТУРА: SELF-HOSTED SUPABASE НА YANDEX CLOUD VPS**
+
+### **Новая архитектурная схема:**
+
+```mermaid
+graph TB
+    subgraph "Инфраструктура Yandex Cloud"
+        A[VPS Instance<br/>Ubuntu 22.04 LTS]
+        B[Domain & DNS<br/>Reg.ru]
+        C[Static IP Address]
+    end
+    
+    subgraph "Frontend Layer"
+        D[Docusaurus Static Site]
+        E[Nginx Web Server]
+        F[SSL Certificate<br/>Let's Encrypt]
+    end
+    
+    subgraph "Backend Layer (Self-hosted Supabase)"
+        G[Supabase Core Services]
+        H[PostgreSQL Database]
+        I[PostgREST API]
+        J[GoTrue Auth]
+        K[Realtime Engine]
+        L[Storage API]
+    end
+    
+    subgraph "CI/CD Pipeline"
+        M[GitHub Repository]
+        N[GitHub Actions]
+        O[Auto-deploy to VPS]
+    end
+    
+    A --> E
+    A --> G
+    B --> F
+    D --> E
+    E --> F
+    G --> H
+    G --> I
+    G --> J
+    G --> K
+    G --> L
+    N --> O
+    O --> A
+```
+
+### **Преимущества новой архитектуры:**
+
+1. **Полный контроль:** Все данные и сервисы находятся в России
+2. **Совместимость:** Supabase API остается стандартным
+3. **Масштабируемость:** Возможность вертикального и горизонтального масштабирования
+4. **Безопасность:** Данные не покидают российскую юрисдикцию
+5. **Стоимость:** Оптимальное соотношение цена/качество
+
+### **Технические требования VPS:**
+
+- **CPU:** 4 vCPU (рекомендуется для Supabase)
+- **RAM:** 8 GB (минимум для стабильной работы)
+- **Storage:** 100 GB SSD (для базы данных и файлов)
+- **Network:** 1 Gbps, статический IP
+- **OS:** Ubuntu 22.04 LTS
+
+### **План развертывания Supabase на VPS:**
+
+1. **Подготовка VPS:**
+   - Установка Docker и Docker Compose
+   - Настройка firewall и безопасности
+   - Создание пользователя для Supabase
+
+2. **Развертывание Supabase:**
+   - Клонирование официального репозитория
+   - Настройка переменных окружения
+   - Запуск всех сервисов
+
+3. **Настройка Nginx:**
+   - Reverse proxy для Supabase API
+   - Статический хостинг для Docusaurus
+   - SSL сертификаты
+
+4. **Интеграция с Docusaurus:**
+   - Обновление конфигурации
+   - Настройка API endpoints
+   - Тестирование функциональности
 

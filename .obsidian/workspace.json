@@ -16,40 +16,6 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
-          },
-          {
-            "id": "084ebcb604846597",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/architechture.md.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "architechture.md"
-            }
-          }
-        ]
-      },
-      {
-        "id": "75ee4992a06bfc06",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "73ab0e9cda37b0e0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/architechture.md.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "architechture.md"
-            }
           }
         ]
       }
@@ -197,6 +163,21 @@
   },
   "active": "5623b71923e09983",
   "lastOpenFiles": [
+    "docs/prd/zaklyuchenie.md",
+    "docs/prd/senoty.md",
+    "docs/prd/chichen-itza.md",
+    "docs/architecture/index.md",
+    "docs/architecture/self-hosted-supabase-yandex-cloud-vps.md",
+    "docs/architecture/self-hosted.md",
+    "docs/architecture",
+    "docs/prd/index.md",
+    "docs/architechture.md",
+    "docs/architecture.md",
+    "docs/prd/epic-1-self-hosted-platform.md",
+    "README.md",
+    "docs/prd",
+    "docs/prd.md",
+    "docs/project-brief.md",
     "docs/architechture.md.md",
     "Templates/SM-Checklist-Mexica.md",
     "Templates/SM-Checklist.md",
@@ -224,21 +205,6 @@
     "referencs/mexico-travel-adventure.md",
     "referencs",
     "referencies/mexico-travel-adventure.md",
-    "referencies",
-    "Новая папка",
-    "Templates/Task.md",
-    "Templates/Ref-Person.md",
-    "Templates/Ref-Instruction.md",
-    "Templates/Ref-Document.md",
-    "Templates/Project.md",
-    "Templates/Meeting.md",
-    "Templates/Inbox.md",
-    "Templates/Daily template.md",
-    "Templates/Book Template.md",
-    "Templates/Area.md",
-    "Templates",
-    "docs/wireframes-trading-platform/index.md",
-    "docs/wireframes-trading-platform/9.md",
-    "docs/wireframes-trading-platform/8.md"
+    "referencies"
   ]
 }

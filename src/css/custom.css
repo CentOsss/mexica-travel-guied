@@ -1,0 +1,362 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  /* Мексиканская цветовая палитра */
+  --mexica-terracotta: #E07A5F;
+  --mexica-sand: #F2E8CF;
+  --mexica-turquoise: #81B29A;
+  --mexica-jungle: #3D405B;
+  
+  /* Основные цвета Docusaurus с мексиканской палитрой */
+  --ifm-color-primary: var(--mexica-terracotta);
+  --ifm-color-primary-dark: #D06A4F;
+  --ifm-color-primary-darker: #C85A3F;
+  --ifm-color-primary-darkest: #B04A2F;
+  --ifm-color-primary-light: #F08A6F;
+  --ifm-color-primary-lighter: #F89A7F;
+  --ifm-color-primary-lightest: #FFAA8F;
+  
+  /* Дополнительные цвета */
+  --ifm-color-secondary: var(--mexica-turquoise);
+  --ifm-color-success: var(--mexica-turquoise);
+  --ifm-color-info: var(--mexica-turquoise);
+  --ifm-color-warning: #F4A261;
+  --ifm-color-danger: #E76F51;
+  
+  /* Фоновые цвета */
+  --ifm-background-color: #FFFFFF;
+  --ifm-background-surface-color: var(--mexica-sand);
+  
+  /* Цвета текста */
+  --ifm-color-content: var(--mexica-jungle);
+  --ifm-color-content-secondary: #6B7280;
+  
+  /* Цвета ссылок */
+  --ifm-link-color: var(--mexica-terracotta);
+  --ifm-link-hover-color: var(--mexica-jungle);
+  
+  /* Цвета кода */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(224, 122, 95, 0.1);
+  
+  /* Цвета навигации */
+  --ifm-navbar-background-color: var(--mexica-sand);
+  --ifm-navbar-link-color: var(--mexica-jungle);
+  --ifm-navbar-link-hover-color: var(--mexica-terracotta);
+  
+  /* Цвета футера */
+  --ifm-footer-background-color: var(--mexica-jungle);
+  --ifm-footer-color: var(--mexica-sand);
+  --ifm-footer-link-color: var(--mexica-sand);
+  --ifm-footer-link-hover-color: var(--mexica-turquoise);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  /* Мексиканская цветовая палитра для темной темы */
+  --mexica-terracotta: #F4A261;
+  --mexica-sand: #2A2A2A;
+  --mexica-turquoise: #98C1A9;
+  --mexica-jungle: #E5E7EB;
+  
+  /* Основные цвета Docusaurus с мексиканской палитрой */
+  --ifm-color-primary: var(--mexica-terracotta);
+  --ifm-color-primary-dark: #E69451;
+  --ifm-color-primary-darker: #D88441;
+  --ifm-color-primary-darkest: #CA7431;
+  --ifm-color-primary-light: #F6B271;
+  --ifm-color-primary-lighter: #F8C281;
+  --ifm-color-primary-lightest: #FAD291;
+  
+  /* Дополнительные цвета */
+  --ifm-color-secondary: var(--mexica-turquoise);
+  --ifm-color-success: var(--mexica-turquoise);
+  --ifm-color-info: var(--mexica-turquoise);
+  --ifm-color-warning: #F4A261;
+  --ifm-color-danger: #E76F51;
+  
+  /* Фоновые цвета */
+  --ifm-background-color: #1A1A1A;
+  --ifm-background-surface-color: var(--mexica-sand);
+  
+  /* Цвета текста */
+  --ifm-color-content: var(--mexica-jungle);
+  --ifm-color-content-secondary: #9CA3AF;
+  
+  /* Цвета ссылок */
+  --ifm-link-color: var(--mexica-terracotta);
+  --ifm-link-hover-color: var(--mexica-jungle);
+  
+  /* Цвета кода */
+  --docusaurus-highlighted-code-line-bg: rgba(244, 162, 97, 0.2);
+  
+  /* Цвета навигации */
+  --ifm-navbar-background-color: var(--mexica-sand);
+  --ifm-navbar-link-color: var(--mexica-jungle);
+  --ifm-navbar-link-hover-color: var(--mexica-terracotta);
+  
+  /* Цвета футера */
+  --ifm-footer-background-color: var(--mexica-sand);
+  --ifm-footer-color: var(--mexica-jungle);
+  --ifm-footer-link-color: var(--mexica-jungle);
+  --ifm-footer-link-hover-color: var(--mexica-turquoise);
+}
+
+/* ===== БАЗОВЫЕ СТИЛИ ТИПОГРАФИКИ ===== */
+
+/* Система заголовков */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: var(--mexica-jungle);
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--mexica-terracotta);
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--mexica-jungle);
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--mexica-jungle);
+}
+
+h4, h5, h6 {
+  font-size: 1.25rem;
+  color: var(--mexica-jungle);
+}
+
+/* Базовый текст */
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  color: var(--mexica-jungle);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Ссылки */
+a {
+  color: var(--mexica-terracotta);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--mexica-jungle);
+  text-decoration: underline;
+}
+
+/* ===== СТИЛИ UI ЭЛЕМЕНТОВ ===== */
+
+/* Кнопки */
+.button {
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.button--primary {
+  background-color: var(--mexica-terracotta);
+  color: white;
+}
+
+.button--primary:hover {
+  background-color: var(--mexica-jungle);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(224, 122, 95, 0.3);
+}
+
+.button--secondary {
+  background-color: var(--mexica-turquoise);
+  color: white;
+}
+
+.button--secondary:hover {
+  background-color: var(--mexica-jungle);
+  transform: translateY(-2px);
+}
+
+.button--outline {
+  background-color: transparent;
+  color: var(--mexica-terracotta);
+  border: 2px solid var(--mexica-terracotta);
+}
+
+.button--outline:hover {
+  background-color: var(--mexica-terracotta);
+  color: white;
+}
+
+/* Карточки */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--mexica-sand);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card--elevated {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card--bordered {
+  border: 2px solid var(--mexica-turquoise);
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* Mobile First подход */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  .button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ===== UTILITY КЛАССЫ ===== */
+
+/* Цвета */
+.text-terracotta { color: var(--mexica-terracotta); }
+.text-sand { color: var(--mexica-sand); }
+.text-turquoise { color: var(--mexica-turquoise); }
+.text-jungle { color: var(--mexica-jungle); }
+
+.bg-terracotta { background-color: var(--mexica-terracotta); }
+.bg-sand { background-color: var(--mexica-sand); }
+.bg-turquoise { background-color: var(--mexica-turquoise); }
+.bg-jungle { background-color: var(--mexica-jungle); }
+
+/* Типографика */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.font-serif { font-family: 'Georgia', 'Times New Roman', serif; }
+.font-sans { font-family: 'Segoe UI', 'Roboto', sans-serif; }
+
+/* Layout и Spacing */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 3rem; }
+
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 1rem; }
+.p-4 { padding: 1.5rem; }
+.p-5 { padding: 3rem; }
+
+/* ===== СПЕЦИАЛЬНЫЕ СТИЛИ ДЛЯ ПРОЕКТА ===== */
+
+/* Hero секция */
+.hero {
+  background: linear-gradient(135deg, var(--mexica-sand) 0%, var(--mexica-turquoise) 100%);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.hero__title {
+  color: var(--mexica-jungle);
+  margin-bottom: 1rem;
+}
+
+.hero__subtitle {
+  color: var(--mexica-jungle);
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Навигация */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar__link {
+  transition: color 0.3s ease;
+}
+
+.navbar__link:hover {
+  color: var(--mexica-terracotta) !important;
+}
+
+/* Футер */
+.footer {
+  border-top: 1px solid var(--mexica-sand);
+}
+
+/* Темная тема */
+[data-theme='dark'] .card {
+  background: var(--mexica-sand);
+  border-color: var(--mexica-jungle);
+}
+
+[data-theme='dark'] .hero {
+  background: linear-gradient(135deg, var(--mexica-sand) 0%, var(--mexica-jungle) 100%);
+}

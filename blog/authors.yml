@@ -23,3 +23,12 @@ slorber:
     linkedin: sebastienlorber
     github: slorber
     newsletter: https://thisweekinreact.com
+
+adventure_seeker:
+  name: Путешественник
+  title: Автор блога о путешествиях по Мексике
+  url: https://mexica.osproject.tech
+  image_url: /img/author-avatar.png
+  page: true
+  socials:
+    github: adventure-seeker

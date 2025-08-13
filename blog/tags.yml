@@ -17,3 +17,88 @@ hola:
   label: Hola
   permalink: /hola
   description: Hola tag description
+
+mexico:
+  label: Мексика
+  permalink: /mexico
+  description: Статьи о путешествиях по Мексике
+
+cancun:
+  label: Канкун
+  permalink: /cancun
+  description: Достопримечательности и советы по Канкуну
+
+travel:
+  label: Путешествия
+  permalink: /travel
+  description: Общие статьи о путешествиях
+
+guide:
+  label: Путеводитель
+  permalink: /guide
+  description: Практические советы для путешественников
+
+planning:
+  label: Планирование
+  permalink: /planning
+  description: Советы по планированию поездок
+
+puerto-morelos:
+  label: Пуэрто-Морелос
+  permalink: /puerto-morelos
+  description: Достопримечательности Пуэрто-Морелос
+
+snorkeling:
+  label: Снорклинг
+  permalink: /snorkeling
+  description: Статьи о подводном плавании и снорклинге
+
+adventure:
+  label: Приключения
+  permalink: /adventure
+  description: Статьи о приключениях и активном отдыхе
+
+chichen-itza:
+  label: Чичен-Ица
+  permalink: /chichen-itza
+  description: Древний город майя Чичен-Ица
+
+maya:
+  label: Майя
+  permalink: /maya
+  description: Цивилизация майя и их наследие
+
+archaeology:
+  label: Археология
+  permalink: /archaeology
+  description: Археологические памятники и исследования
+
+cenotes:
+  label: Сеноты
+  permalink: /cenotes
+  description: Природные карстовые воронки Юкатана
+
+nature:
+  label: Природа
+  permalink: /nature
+  description: Природные достопримечательности
+
+swimming:
+  label: Плавание
+  permalink: /swimming
+  description: Статьи о плавании и водных видах спорта
+
+culture:
+  label: Культура
+  permalink: /culture
+  description: Культурное наследие и традиции
+
+history:
+  label: История
+  permalink: /history
+  description: Исторические события и факты
+
+reflection:
+  label: Размышления
+  permalink: /reflection
+  description: Личные размышления и впечатления

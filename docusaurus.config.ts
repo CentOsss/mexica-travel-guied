@@ -103,6 +103,10 @@ const config: Config = {
               label: 'Введение',
               to: '/docs/intro',
             },
+            {
+              label: 'Планирование',
+              to: '/docs/tutorial-basics/create-a-document',
+            },
           ],
         },
         {

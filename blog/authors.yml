@@ -1,28 +1,17 @@
-yangshun:
-  name: Yangshun Tay
-  title: Ex-Meta Staff Engineer, Co-founder GreatFrontEnd
-  url: https://linkedin.com/in/yangshun
-  image_url: https://github.com/yangshun.png
+sarah:
+  name: Сара Петрова
+  title: Путешественница и автор путеводителя по Мексике
+  url: https://mexica-travel-guide.com
+  image_url: /img/author-sarah.jpg
   page: true
+  description: >
+    Привет! Я Сара, страстная путешественница и автор этого путеводителя по Мексике. 
+    Я делюсь своими приключениями, практическими советами и вдохновляющими историями 
+    о путешествиях по этой удивительной стране.
   socials:
-    x: yangshunz
-    linkedin: yangshun
-    github: yangshun
-    newsletter: https://www.greatfrontend.com
-
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
-  page:
-    # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
-  socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com
+    instagram: sarah_mexico_travels
+    youtube: sarah_mexico_guide
+    telegram: sarah_mexico_travels
 
 adventure_seeker:
   name: Путешественник
@@ -32,3 +21,13 @@ adventure_seeker:
   page: true
   socials:
     github: adventure-seeker
+
+guest:
+  name: Гость
+  title: Приглашенный автор
+  url: https://mexica-travel-guide.com
+  image_url: /img/author-guest.jpg
+  page: false
+  description: >
+    Приглашенные авторы, которые делятся своими уникальными историями 
+    и опытом путешествий по Мексике.

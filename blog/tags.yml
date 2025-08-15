@@ -1,32 +1,22 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+cancun:
+  label: Канкун
+  permalink: /cancun
+  description: Путешествия и достопримечательности Канкуна
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+puerto-morelos:
+  label: Пуэрто-Морелос
+  permalink: /puerto-morelos
+  description: Спокойный курортный город на Ривьере Майя
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
-
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+chichen-itza:
+  label: Чичен-Ица
+  permalink: /chichen-itza
+  description: Древний город майя, одно из новых семи чудес света
 
 mexico:
   label: Мексика
   permalink: /mexico
   description: Статьи о путешествиях по Мексике
-
-cancun:
-  label: Канкун
-  permalink: /cancun
-  description: Достопримечательности и советы по Канкуну
 
 travel:
   label: Путешествия
@@ -43,11 +33,6 @@ planning:
   permalink: /planning
   description: Советы по планированию поездок
 
-puerto-morelos:
-  label: Пуэрто-Морелос
-  permalink: /puerto-morelos
-  description: Достопримечательности Пуэрто-Морелос
-
 snorkeling:
   label: Снорклинг
   permalink: /snorkeling
@@ -57,11 +42,6 @@ adventure:
   label: Приключения
   permalink: /adventure
   description: Статьи о приключениях и активном отдыхе
-
-chichen-itza:
-  label: Чичен-Ица
-  permalink: /chichen-itza
-  description: Древний город майя Чичен-Ица
 
 maya:
   label: Майя
@@ -76,7 +56,7 @@ archaeology:
 cenotes:
   label: Сеноты
   permalink: /cenotes
-  description: Природные карстовые воронки Юкатана
+  description: Подземные пещеры и природные бассейны Юкатана
 
 nature:
   label: Природа
@@ -88,10 +68,20 @@ swimming:
   permalink: /swimming
   description: Статьи о плавании и водных видах спорта
 
+travel-tips:
+  label: Советы путешественникам
+  permalink: /travel-tips
+  description: Практические советы для путешествий по Мексике
+
 culture:
   label: Культура
   permalink: /culture
-  description: Культурное наследие и традиции
+  description: Культура, традиции и история Мексики
+
+food:
+  label: Мексиканская кухня
+  permalink: /food
+  description: Национальная кухня Мексики и рестораны
 
 history:
   label: История

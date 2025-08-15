@@ -1,19 +1,39 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+cancun:
+  label: Канкун
+  permalink: /cancun
+  description: Путешествия и достопримечательности Канкуна
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+puerto-morelos:
+  label: Пуэрто-Морелос
+  permalink: /puerto-morelos
+  description: Спокойный курортный город на Ривьере Майя
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+chichen-itza:
+  label: Чичен-Ица
+  permalink: /chichen-itza
+  description: Древний город майя, одно из новых семи чудес света
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+cenotes:
+  label: Сеноты
+  permalink: /cenotes
+  description: Подземные пещеры и природные бассейны Юкатана
+
+travel-tips:
+  label: Советы путешественникам
+  permalink: /travel-tips
+  description: Практические советы для путешествий по Мексике
+
+culture:
+  label: Культура
+  permalink: /culture
+  description: Культура, традиции и история Мексики
+
+food:
+  label: Мексиканская кухня
+  permalink: /food
+  description: Национальная кухня Мексики и рестораны
+
+adventure:
+  label: Приключения
+  permalink: /adventure
+  description: Активный отдых и приключения в Мексике

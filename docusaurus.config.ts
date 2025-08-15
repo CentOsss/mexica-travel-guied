@@ -41,6 +41,7 @@ const config: Config = {
       'classic',
       {
         docs: {
+          path: 'docusaurus_doc',
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -102,6 +103,10 @@ const config: Config = {
             {
               label: 'Введение',
               to: '/docs/intro',
+            },
+            {
+              label: 'Планирование',
+              to: '/docs/tutorial-basics/create-a-document',
             },
           ],
         },

@@ -1,8 +1,8 @@
 ---
 slug: puerto-morelos-snorkel-and-relax
 title: 'Пуэрто-Морелос: Снорклинг и релакс'
-authors: analyst
-tags: [mexico, puerto-morelos, travel, snorkeling]
+authors: sarah
+tags: [puerto-morelos, adventure, travel-tips]
 ---
 
 # Пуэрто-Морелос: Снорклинг и релакс
